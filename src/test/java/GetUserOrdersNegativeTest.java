@@ -1,5 +1,4 @@
 import errorMessages.ErrorMessage;
-import io.qameta.allure.Step;
 import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.Response;
 import org.junit.Test;
