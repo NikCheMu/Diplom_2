@@ -20,8 +20,6 @@ public class UpdateUserParameterizedTest extends BaseTest {
     private final UpdateUserPositiveResponse expectedResponse;
     private String token;
 
-    private CreateUserModel user;
-
 
     public UpdateUserParameterizedTest(UpdateUserModel updateUserModel, UpdateUserPositiveResponse expectedResponse) {
         super();
@@ -32,7 +30,7 @@ public class UpdateUserParameterizedTest extends BaseTest {
     @Before
     @Step("Prepare user before test")
     public void setUp(){
-        user = Helpers.registerNewUser(Helpers.defaultUser());
+        CreateUserModel user = Helpers.registerNewUser(Helpers.defaultUser());
         LogInUserModel credentials = new LogInUserModel(user.getEmail(), user.getPassword());
         token = Helpers.extractAcessToken(credentials);
     }

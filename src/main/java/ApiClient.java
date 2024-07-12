@@ -40,16 +40,6 @@ public class ApiClient {
 
     }
 
-    @Step("Send GET/api/auth/user")
-    public static Response getUser(RequestSpecification specification,String accessToken){
-        if(accessToken!=null){
-            specification.header("Authorization",accessToken);
-        }
-        return given()
-                .spec(specification)
-                .get("/api/auth/user");
-
-    }
     @Step("Send PATCH/api/auth/user")
     public static Response updateUser(RequestSpecification specification, String accessToken, UpdateUserModel updateUserModel){
         if(accessToken!=null){

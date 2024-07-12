@@ -3,7 +3,7 @@ import io.restassured.specification.RequestSpecification;
 
 public class DefaultSpecification {
 
-    private String URL;
+    private final String URL;
 
     public DefaultSpecification(String URL) {
         this.URL = URL;

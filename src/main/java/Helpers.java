@@ -4,14 +4,11 @@ import io.restassured.specification.RequestSpecification;
 import requestModels.CreateUserModel;
 import requestModels.LogInUserModel;
 import responseModels.LogInUserPositiveResponse;
-import responseModels.UpdateUserNegativeResponse;
 import responseModels.getIngredientsPositiveResponse.GetIngredientPositiveResponse;
 import responseModels.getIngredientsPositiveResponse.Ingredient;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import static org.apache.http.HttpStatus.*;
 

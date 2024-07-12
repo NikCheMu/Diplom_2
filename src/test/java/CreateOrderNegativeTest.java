@@ -3,6 +3,7 @@ import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.Response;
 import org.junit.Test;
 import requestModels.CreateOrderModel;
+import responseModels.CreateOrderNegativeResponse;
 import responseModels.CreateUserNegativeResponse;
 
 import java.util.ArrayList;
@@ -21,7 +22,7 @@ public class CreateOrderNegativeTest extends  BaseTest{
         Response response = ApiClient.postCreateOrder(order,specification.defaultSpecification(),null);
         assertions.Status.assertBadRequest(response);
 
-        CreateUserNegativeResponse createUserNegativeResponse  = (CreateUserNegativeResponse) assertions.Response.deserialize(response,CreateUserNegativeResponse.class);
+        CreateOrderNegativeResponse createUserNegativeResponse  = (CreateOrderNegativeResponse) assertions.Response.deserialize(response,CreateOrderNegativeResponse.class);
 
         assertions.Response.assertField(createUserNegativeResponse.isSuccess(),false,true);
         assertions.Response.assertField(createUserNegativeResponse.getMessage(), ErrorMessage.NO_INGREDIENTS.getMessage(),true);

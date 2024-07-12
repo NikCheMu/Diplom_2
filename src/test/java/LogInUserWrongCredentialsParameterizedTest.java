@@ -18,8 +18,6 @@ public class LogInUserWrongCredentialsParameterizedTest extends BaseTest{
 
     private final String errorMessage;
 
-    private CreateUserModel user;
-
     private String token;
 
     public LogInUserWrongCredentialsParameterizedTest(LogInUserModel logInUserModel, String errorMessage) {
@@ -30,7 +28,7 @@ public class LogInUserWrongCredentialsParameterizedTest extends BaseTest{
     @Before
     @Step("Prepare user before test")
     public void setUp(){
-        user =  Helpers.registerNewUser(Helpers.defaultUser());
+        CreateUserModel user =  Helpers.registerNewUser(Helpers.defaultUser());
         LogInUserModel credentials = new LogInUserModel(user.getEmail(), user.getPassword());
         token = Helpers.extractAcessToken(credentials);
     }
