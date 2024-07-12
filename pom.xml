@@ -17,6 +17,7 @@
         <!-- версия Allure -->
         <allure.version>2.15.0</allure.version>
     </properties>
+
     <dependencies>
         <dependency>
             <groupId>com.github.javafaker</groupId>
