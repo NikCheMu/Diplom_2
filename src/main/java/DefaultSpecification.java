@@ -9,10 +9,13 @@ public class DefaultSpecification {
         this.URL = URL;
     }
 
-    public RequestSpecification defaultSpecification(){
+    public RequestSpecification defaultSpecification() {
         RequestSpecBuilder builder = new RequestSpecBuilder();
+
         builder.setBaseUri(this.URL);
-        builder.addHeader("Content-Type","application/json");
+
+        builder.addHeader("Content-Type", "application/json");
+
         return builder.build();
     }
 }

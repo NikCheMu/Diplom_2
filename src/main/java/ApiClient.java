@@ -1,17 +1,17 @@
 import io.qameta.allure.Step;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
-import requestModels.CreateOrderModel;
-import requestModels.CreateUserModel;
-import requestModels.LogInUserModel;
-import requestModels.UpdateUserModel;
+import request.models.CreateOrderModel;
+import request.models.CreateUserModel;
+import request.models.LogInUserModel;
+import request.models.UpdateUserModel;
 
 import static io.restassured.RestAssured.given;
 
 public class ApiClient {
 
     @Step("Send POST/api/auth/register")
-    public static Response postCreateUser(CreateUserModel createUserModel, RequestSpecification specification){
+    public static Response postCreateUser(CreateUserModel createUserModel, RequestSpecification specification) {
         return given()
                 .spec(specification)
                 .body(createUserModel)
@@ -20,7 +20,7 @@ public class ApiClient {
     }
 
     @Step("Send POST/api/auth/login")
-    public static Response postLogInUser(LogInUserModel logInUserModel, RequestSpecification specification){
+    public static Response postLogInUser(LogInUserModel logInUserModel, RequestSpecification specification) {
         return given()
                 .spec(specification)
                 .body(logInUserModel)
@@ -30,9 +30,9 @@ public class ApiClient {
 
 
     @Step("Send DELETE/api/auth/user")
-    public static Response deleteUser(RequestSpecification specification,String accessToken){
-        if(accessToken!=null){
-            specification.header("Authorization",accessToken);
+    public static Response deleteUser(RequestSpecification specification, String accessToken) {
+        if (accessToken != null) {
+            specification.header("Authorization", accessToken);
         }
         return given()
                 .spec(specification)
@@ -41,9 +41,9 @@ public class ApiClient {
     }
 
     @Step("Send PATCH/api/auth/user")
-    public static Response updateUser(RequestSpecification specification, String accessToken, UpdateUserModel updateUserModel){
-        if(accessToken!=null){
-            specification.header("Authorization",accessToken);
+    public static Response updateUser(RequestSpecification specification, String accessToken, UpdateUserModel updateUserModel) {
+        if (accessToken != null) {
+            specification.header("Authorization", accessToken);
         }
         return given()
                 .spec(specification)
@@ -52,9 +52,9 @@ public class ApiClient {
     }
 
     @Step("Send POST/api/orders")
-    public static Response postCreateOrder(CreateOrderModel createOrderModel, RequestSpecification specification,String accessToken){
-        if(accessToken!=null){
-            specification.header("Authorization",accessToken);
+    public static Response postCreateOrder(CreateOrderModel createOrderModel, RequestSpecification specification, String accessToken) {
+        if (accessToken != null) {
+            specification.header("Authorization", accessToken);
         }
         return given()
                 .spec(specification)
@@ -65,7 +65,7 @@ public class ApiClient {
 
 
     @Step("Send GET/api/ingredients")
-    public static Response getIngredients(RequestSpecification specification){
+    public static Response getIngredients(RequestSpecification specification) {
         return given()
                 .spec(specification)
                 .get("/api/ingredients");
@@ -73,16 +73,14 @@ public class ApiClient {
     }
 
     @Step("Send GET/api/orders")
-    public static Response getUserOrders(RequestSpecification specification,String accessToken){
-        if(accessToken!=null){
-            specification.header("Authorization",accessToken);
+    public static Response getUserOrders(RequestSpecification specification, String accessToken) {
+        if (accessToken != null) {
+            specification.header("Authorization", accessToken);
         }
         return given()
                 .spec(specification)
                 .get("/api/orders");
     }
-
-
 
 
 }
