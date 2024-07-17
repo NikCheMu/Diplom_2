@@ -63,6 +63,7 @@ public class LogInUserWrongCredentialsParameterizedTest extends BaseTest {
         LogInUserNegativeResponse deserialized = (LogInUserNegativeResponse) assertions.Response.deserialize(logInResponse, LogInUserNegativeResponse.class);
 
         assertions.Response.assertField(deserialized.isSuccess(), false, true);
+
         assertions.Response.assertField(deserialized.getMessage(), errorMessage, true);
     }
 

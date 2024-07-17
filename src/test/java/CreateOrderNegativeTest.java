@@ -26,6 +26,7 @@ public class CreateOrderNegativeTest extends BaseTest {
         CreateOrderNegativeResponse createUserNegativeResponse = (CreateOrderNegativeResponse) assertions.Response.deserialize(response, CreateOrderNegativeResponse.class);
 
         assertions.Response.assertField(createUserNegativeResponse.isSuccess(), false, true);
+
         assertions.Response.assertField(createUserNegativeResponse.getMessage(), ErrorMessage.NO_INGREDIENTS.getMessage(), true);
     }
 

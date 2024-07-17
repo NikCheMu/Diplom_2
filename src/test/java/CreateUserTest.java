@@ -36,9 +36,13 @@ public class CreateUserTest extends BaseTest {
         CreateUserPositiveResponse createUserPositiveResponse = (CreateUserPositiveResponse) assertions.Response.deserialize(createResponse, CreateUserPositiveResponse.class);
 
         assertions.Response.assertField(createUserPositiveResponse.isSuccess(), true, true);
+
         assertions.Response.assertField(createUserPositiveResponse.getAccessToken());
+
         assertions.Response.assertField(createUserPositiveResponse.getRefreshToken());
+
         assertions.Response.assertField(createUserPositiveResponse.getUser().getName(), createUserModel.getName(), true);
+
         assertions.Response.assertField(createUserPositiveResponse.getUser().getEmail(), createUserModel.getEmail(), true);
 
     }
@@ -57,6 +61,7 @@ public class CreateUserTest extends BaseTest {
         CreateUserNegativeResponse createUserNegativeResponse = (CreateUserNegativeResponse) assertions.Response.deserialize(createAlreadyRegisteredResponse, CreateUserNegativeResponse.class);
 
         assertions.Response.assertField(createUserNegativeResponse.isSuccess(), false, true);
+
         assertions.Response.assertField(createUserNegativeResponse.getMessage(), ErrorMessage.USER_TO_CREATE_EXIST.getMessage(), true);
     }
 

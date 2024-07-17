@@ -62,6 +62,7 @@ public class UpdateUserErrorTest extends BaseTest {
         assertions.Status.assertUnauthorized(response);
 
         assertions.Response.assertField(updateUserActualResponse.isSuccess(), false, true);
+
         assertions.Response.assertField(updateUserActualResponse.getMessage(), ErrorMessage.UNAUTHORIZED.getMessage(), true);
     }
 
@@ -78,6 +79,7 @@ public class UpdateUserErrorTest extends BaseTest {
         UpdateUserNegativeResponse actualResponse = (UpdateUserNegativeResponse) assertions.Response.deserialize(updateResponse, UpdateUserNegativeResponse.class);
 
         assertions.Response.assertField(actualResponse.isSuccess(), false, true);
+
         assertions.Response.assertField(actualResponse.getMessage(), ErrorMessage.USER_TO_UPDATE_EXIST.getMessage(), true);
     }
 

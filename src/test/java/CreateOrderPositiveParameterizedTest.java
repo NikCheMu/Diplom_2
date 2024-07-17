@@ -69,7 +69,9 @@ public class CreateOrderPositiveParameterizedTest extends BaseTest {
         CreateOrderPositiveResponse createOrderPositiveResponse = (CreateOrderPositiveResponse) assertions.Response.deserialize(response, CreateOrderPositiveResponse.class);
 
         assertions.Response.assertField(createOrderPositiveResponse.getName());
+
         assertions.Response.assertField(createOrderPositiveResponse.getOrder().getNumber());
+
         assertions.Response.assertField(createOrderPositiveResponse.isSuccess(), true, true);
 
 

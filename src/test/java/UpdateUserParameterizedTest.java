@@ -30,9 +30,13 @@ public class UpdateUserParameterizedTest extends BaseTest {
     @Parameterized.Parameters
     public static Object[][] testData() {
         CreateUserModel defaultUser = Helpers.defaultUser();
+
         String randomName = Helpers.getRandomString();
+
         String randomEmail = Helpers.getRandomString().toLowerCase();
+
         String randomPassword = Helpers.getRandomString();
+
         return new Object[][]{
                 {new UpdateUserModel(null, null, randomName),
                         new UpdateUserPositiveResponse(true, new User(defaultUser.getEmail(), randomName))},
@@ -72,6 +76,7 @@ public class UpdateUserParameterizedTest extends BaseTest {
         UpdateUserPositiveResponse updateUserActualPositiveResponse = (UpdateUserPositiveResponse) assertions.Response.deserialize(updateResponse, UpdateUserPositiveResponse.class);
 
         assertions.Response.assertField(updateUserActualPositiveResponse.getUser().getName(), expectedResponse.getUser().getName(), true);
+
         assertions.Response.assertField(updateUserActualPositiveResponse.getUser().getEmail(), expectedResponse.getUser().getEmail(), true);
     }
 }

@@ -36,7 +36,9 @@ public class GetUserOrdersPositiveTest extends BaseTest {
         ArrayList<String> firstOrderIngredients = new ArrayList<>();
 
         firstOrderIngredients.add(ids.get(0));
+
         firstOrderIngredients.add(ids.get(1));
+
         firstOrderIngredients.add(ids.get(2));
 
         firstOrder = new CreateOrderModel(firstOrderIngredients);
@@ -44,7 +46,9 @@ public class GetUserOrdersPositiveTest extends BaseTest {
         ArrayList<String> secondOrderIngredients = new ArrayList<>();
 
         secondOrderIngredients.add(ids.get(3));
+
         secondOrderIngredients.add(ids.get(4));
+
         secondOrderIngredients.add(ids.get(5));
 
         firstOrder = new CreateOrderModel(firstOrderIngredients);
@@ -76,8 +80,11 @@ public class GetUserOrdersPositiveTest extends BaseTest {
                 deserialize(response, GetUserOrdersPositiveResponse.class);
 
         assertions.Response.assertField(getUserOrdersPositiveResponse.isSuccess(), true, true);
+
         assertions.Response.assertField(getUserOrdersPositiveResponse.getOrders().size(), 2, true);
+
         assertions.Response.assertField(getUserOrdersPositiveResponse.getOrders().get(0).getIngredients().containsAll(firstOrder.getIngredients()), true, true);
+
         assertions.Response.assertField(getUserOrdersPositiveResponse.getOrders().get(1).getIngredients().containsAll(secondOrder.getIngredients()), true, true);
 
     }

@@ -19,6 +19,7 @@ public class LogInUserTest extends BaseTest {
     @Step("Prepare data for tests")
     public void setUp() {
         createUserModel = Helpers.getRandomUser();
+
         logInUserModel = new LogInUserModel(createUserModel.getEmail(), createUserModel.getPassword());
     }
 
@@ -43,9 +44,13 @@ public class LogInUserTest extends BaseTest {
         LogInUserPositiveResponse logInUserPositiveResponse = (LogInUserPositiveResponse) assertions.Response.deserialize(logInResponse, LogInUserPositiveResponse.class);
 
         assertions.Response.assertField(logInUserPositiveResponse.isSuccess(), true, true);
+
         assertions.Response.assertField(logInUserPositiveResponse.getAccessToken());
+
         assertions.Response.assertField(logInUserPositiveResponse.getRefreshToken());
+
         assertions.Response.assertField(logInUserPositiveResponse.getUser().getName(), createUserModel.getName(), true);
+
         assertions.Response.assertField(logInUserPositiveResponse.getUser().getEmail(), createUserModel.getEmail(), true);
 
     }

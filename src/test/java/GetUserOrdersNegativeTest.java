@@ -16,6 +16,7 @@ public class GetUserOrdersNegativeTest extends BaseTest {
         GetUserOrdersNegativeResponse getUserNegativeResponse = (GetUserOrdersNegativeResponse) assertions.Response.deserialize(response, GetUserOrdersNegativeResponse.class);
 
         assertions.Response.assertField(getUserNegativeResponse.isSuccess(), false, true);
+
         assertions.Response.assertField(getUserNegativeResponse.getMessage(), ErrorMessage.UNAUTHORIZED.getMessage(), true);
     }
 }

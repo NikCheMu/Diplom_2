@@ -38,6 +38,7 @@ public class CreateUserParameterizedTest extends BaseTest {
         CreateUserNegativeResponse deserialized = (CreateUserNegativeResponse) assertions.Response.deserialize(createResponse, CreateUserNegativeResponse.class);
 
         assertions.Response.assertField(deserialized.isSuccess(), false, true);
+
         assertions.Response.assertField(deserialized.getMessage(), errorMessage, true);
     }
 }
